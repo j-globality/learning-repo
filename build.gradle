@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'learning.repo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+dependencies {
+
+}
