@@ -16,5 +16,6 @@ sourceSets {
     }
 }
 dependencies {
-
+    implementation platform('io.projectreactor:reactor-bom:Dysprosium-SR13')
+    implementation 'io.projectreactor:reactor-core'
 }
