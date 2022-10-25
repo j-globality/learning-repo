@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Operations {
-    public static void main(String[] args) {
-        createFile();
-        readFile();
+
+    public static void runFileOperations() {
+
     }
 
     public static void createFile() {

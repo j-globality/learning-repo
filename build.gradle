@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "application"
 }
 
 group 'learning.repo'
@@ -13,3 +14,5 @@ dependencies {
     implementation platform('io.projectreactor:reactor-bom:2020.0.24')
     implementation 'io.projectreactor:reactor-core'
 }
+
+mainClassName = 'repo.learning.Main'
