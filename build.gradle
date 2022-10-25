@@ -8,13 +8,7 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src']
-        }
-    }
-}
+
 dependencies {
     implementation platform('io.projectreactor:reactor-bom:Dysprosium-SR13')
     implementation 'io.projectreactor:reactor-core'

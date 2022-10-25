@@ -1,11 +1,11 @@
-package main.java.files;
+package repo.learning.file;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class FileTesting {
+public class Operations {
     public static void main(String[] args) {
         createFile();
         readFile();
@@ -28,5 +28,4 @@ public class FileTesting {
             throw new RuntimeException(e);
         }
     }
-
 }
