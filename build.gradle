@@ -15,4 +15,6 @@ dependencies {
     implementation 'io.projectreactor:reactor-core'
 }
 
-mainClassName = 'repo.learning.Main'
+application {
+    mainClass = 'repo.learning.Main'
+}
