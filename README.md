@@ -2,7 +2,7 @@
 
 This repo contains examples of the following topics:
 * Files
-    * Creating, Reading, and Writing with `try-with`resources.
+    * Creating, Reading, and Writing with `try-with resources`.
 * Reactive
     * Combining sequences.
     * Error handling.
