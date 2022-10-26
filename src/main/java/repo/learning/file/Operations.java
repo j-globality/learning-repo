@@ -2,6 +2,7 @@ package repo.learning.file;
 
 import reactor.core.publisher.Mono;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -20,20 +21,16 @@ public class Operations {
             try(FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
                 fileOutputStream.write("testing".getBytes());
                 return fileName;
-            } catch (IOException e) {
-                throw new RuntimeException();
             }
-        });
+        }).onErrorResume(e -> Mono.error(new IOException()));
     }
 
     public static Mono<String> readFile(String file) {
         return Mono.fromCallable(() -> {
             try (Scanner scanner = new Scanner(Path.of(file))){
                 return scanner.nextLine();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
-        });
+        }).onErrorResume(e -> Mono.error(new FileNotFoundException()));
     }
 
 }
