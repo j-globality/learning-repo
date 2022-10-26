@@ -9,30 +9,27 @@ import java.util.Scanner;
 
 public class Operations {
 
-    public static Mono<Void> runFileOperations() {
-        return Mono.when(createAndWriteToFile())
-                .then(createAndWriteToFile())
-                .then(readFile())
-                .thenEmpty(readFile());
+    public static Mono<String> runFileOperations(String fileName) {
+        return Mono.when(createAndWriteToFile(fileName))
+                .then(readFile(fileName));
+
     }
 
-    public static Mono<Void> createAndWriteToFile() {
-        return Mono.<Void>fromRunnable(() -> {
-            try(FileOutputStream fileOutputStream = new FileOutputStream("newFile.txt")) {
+    public static Mono<String> createAndWriteToFile(String fileName) {
+        return Mono.fromCallable(() -> {
+            try(FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
                 fileOutputStream.write("testing".getBytes());
+                return fileName;
             } catch (IOException e) {
                 throw new RuntimeException();
             }
         });
     }
 
-    public static Mono<Void> readFile() {
-        return Mono.<Void>fromRunnable(() -> {
-            try (Scanner scanner = new Scanner(Path.of("newFile.txt"))){
-                while (scanner.hasNext()) {
-                    System.out.println("**************************");
-                    System.out.println(scanner.nextLine());
-                }
+    public static Mono<String> readFile(String file) {
+        return Mono.fromCallable(() -> {
+            try (Scanner scanner = new Scanner(Path.of(file))){
+                return scanner.nextLine();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

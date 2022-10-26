@@ -11,5 +11,5 @@ This repo contains examples of the following topics:
 In the main directory, run the following:
 ```
 $ ./gradlew build
-$ ./gradlew run
+$ ./gradlew run --args="newfile"
 ```
